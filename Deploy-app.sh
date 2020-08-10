@@ -3,7 +3,7 @@
 # Create Domain Name for Moodle App
 echo Hello, What is your Moodle LMS App Domain?
 read vardomain
-sed -i 's/moodle.domain.com/$vardomain/g; s/moodle.key/$vardomain.key/g; s/moodle.crt/$vardomain.crt/g' ./config/nginx/app_moodle.conf
+sed -i "s/moodle.domain.com/$vardomain/g; s/moodle.key/$vardomain.key/g; s/moodle.crt/$vardomain.crt/g" ./config/nginx/app_moodle.conf
 
 # Create Self Signed Certificate for Moodle Domain
 openssl req -new -x509 -days 365 -nodes \
