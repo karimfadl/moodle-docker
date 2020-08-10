@@ -48,4 +48,3 @@ services:
       TZ: "Africa/Egypt"
     volumes:
       - ./db:/var/lib/mysql
-      - /srv/docker/sockets/mariadb.container.sock:/var/run/mysqld/mysqld.sock
