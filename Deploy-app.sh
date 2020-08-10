@@ -22,6 +22,7 @@ docker-compose up -d
 
 # Fix Moodle Dir Data Permission
 chmod -R 777 ./moodledata
+docker exec app_moodle chown -R nginx:nginx /var/www/html
 
 #Note
 echo "PLEASE Dont' Forget to add the following to /etc/hosts: 127.0.0.1	$vardomain"
