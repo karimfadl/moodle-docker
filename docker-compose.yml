@@ -2,7 +2,7 @@ version: '3.2'
 services:
 
   app_moodle:
-    image: karimfadl/nginx-php-fpm7
+    image: karimfadl/moodle-lms
     container_name: app_moodle
     restart: always
     ports:
@@ -13,7 +13,8 @@ services:
       - ./config/php/www.conf:/etc/php-fpm.d/www.conf
       - ./config/php/php.ini/:/etc/php.ini
       - ./config/ssl/:/etc/nginx/ssl/
-      - ./moodle_data:/var/www/html:rw
+      - ./moodle:/var/www/html:rw
+      - ./moodledata:/var/moodledata:rw
     depends_on:
       - db_moodle
     environment:
@@ -47,3 +48,4 @@ services:
       TZ: "Africa/Egypt"
     volumes:
       - ./db:/var/lib/mysql
+      - /srv/docker/sockets/mariadb.container.sock:/var/run/mysqld/mysqld.sock
